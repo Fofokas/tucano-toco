@@ -5,10 +5,12 @@ function Header() {
 
   return (
     <>
-        <header className='bg-secondary'>
-            <h1>tudo de bom para o tu cano</h1>
-            <a href="#teste">teste</a>
-            <a href="#teste2">teste2</a>
+        <header className='header'>
+          <div className='row'>
+            <div className="col">
+              <div className="titulo">Tucano-Toco</div>
+            </div>
+          </div>
         </header>
     </>
   )
