@@ -19,6 +19,8 @@ function App() {
       </h1>
 
       <img src={tucano} alt="" />
+
+      <h1>sexo</h1>
     </>
   )
 }
