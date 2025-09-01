@@ -40,7 +40,7 @@ function App() {
       <h2><strong>Curiosidade legal:</strong>
       Quando dorme, se dobra de modo que diminui seu tamanho em dois terços. Coloca o bico sobre as costas e em seguida, cobre-se com a cauda.
       Gostam de pousar em torres de telefonia. 
-      <img src={tucano_sleep} alt="" />
+      <img src={tucano_sleep} alt="Tucano dormindo encolhido" />
       </h2>
 
       <img src={tucano} alt="" />
