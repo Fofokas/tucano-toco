@@ -10,7 +10,7 @@ import tucano02 from './assets/tucano02.png'
 import tucanotuco04 from './assets/tucanotuco04.jpg'
 import dancingTeucano from './assets/dancing teucano.gif'
 import tucanocu from './assets/tucanocu.jpeg'
-import tucano_sleep from './assets/tucano_sleep.jpeg'
+import tucano_sleep from './assets/tucano_sleep.jpg'
 
 
 import Header from './components/Header'
@@ -97,17 +97,17 @@ function App() {
                       transition: 'all 0.2s',
                       fontSize: '1.25rem',
                       color: '#2c3e50',
-                      minHeight: 170,
+                      minHeight: 120,
+                      maxHeight: 160,
                       height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
                       alignItems: 'flex-start',
                       userSelect: 'none',
-                      overflow: 'visible',
-                      textOverflow: 'unset',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
                       whiteSpace: 'normal',
-                      wordBreak: 'break-word',
                     }}
                   >
                     <strong style={{ color: '#f39912', fontSize: '1.1em' }}>{item.label}:</strong> {item.value}

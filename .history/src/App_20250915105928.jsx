@@ -97,17 +97,17 @@ function App() {
                       transition: 'all 0.2s',
                       fontSize: '1.25rem',
                       color: '#2c3e50',
-                      minHeight: 170,
+                      minHeight: 120,
+                      maxHeight: 160,
                       height: '100%',
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
                       alignItems: 'flex-start',
                       userSelect: 'none',
-                      overflow: 'visible',
-                      textOverflow: 'unset',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
                       whiteSpace: 'normal',
-                      wordBreak: 'break-word',
                     }}
                   >
                     <strong style={{ color: '#f39912', fontSize: '1.1em' }}>{item.label}:</strong> {item.value}

@@ -10,10 +10,8 @@ import tucano02 from './assets/tucano02.png'
 import tucanotuco04 from './assets/tucanotuco04.jpg'
 import dancingTeucano from './assets/dancing teucano.gif'
 import tucanocu from './assets/tucanocu.jpeg'
-import tucano_sleep from './assets/tucano_sleep.jpeg'
 
 
-import Header from './components/Header'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 const info = [
@@ -51,28 +49,28 @@ function App() {
           style={{ background: "#fff3e0", borderRadius: "16px" }}
         >
           <div className="row g-3 justify-content-center align-items-center">
-            <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center">
+            <div className="col-6 col-sm-4 col-md-3 d-flex justify-content-center">
               <img src={tucano} alt="Tucano Toco" className="img-fluid" style={{ border: '4px solid #f39912', borderRadius: 12, objectFit: 'cover', height: 140, width: 170, maxWidth: '100%' }} />
             </div>
-            <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center">
+            <div className="col-6 col-sm-4 col-md-3 d-flex justify-content-center">
               <img src={teucaninho032} alt="Tucaninho" className="img-fluid" style={{ border: '4px solid #f39912', borderRadius: 12, objectFit: 'cover', height: 140, width: 170, maxWidth: '100%' }} />
             </div>
-            <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center">
+            <div className="col-6 col-sm-4 col-md-3 d-flex justify-content-center">
               <img src={mastigano} alt="Tucano mastigando" className="img-fluid" style={{ border: '4px solid #f39912', borderRadius: 12, objectFit: 'cover', height: 140, width: 170, maxWidth: '100%' }} />
             </div>
-            <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center">
+            <div className="col-6 col-sm-4 col-md-3 d-flex justify-content-center">
               <img src={tucano01} alt="Tucano 01" className="img-fluid" style={{ border: '4px solid #f39912', borderRadius: 12, objectFit: 'cover', height: 140, width: 170, maxWidth: '100%' }} />
             </div>
-            <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center">
+            <div className="col-6 col-sm-4 col-md-3 d-flex justify-content-center">
               <img src={tucano02} alt="Tucano 02" className="img-fluid" style={{ border: '4px solid #f39912', borderRadius: 12, objectFit: 'cover', height: 140, width: 170, maxWidth: '100%' }} />
             </div>
-            <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center">
+            <div className="col-6 col-sm-4 col-md-3 d-flex justify-content-center">
               <img src={tucanotuco04} alt="Tucano Tuco 04" className="img-fluid" style={{ border: '4px solid #f39912', borderRadius: 12, objectFit: 'cover', height: 140, width: 170, maxWidth: '100%' }} />
             </div>
-            <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center">
+            <div className="col-6 col-sm-4 col-md-3 d-flex justify-content-center">
               <img src={dancingTeucano} alt="Tucano dançando" className="img-fluid" style={{ border: '4px solid #f39912', borderRadius: 12, objectFit: 'cover', height: 140, width: 170, maxWidth: '100%' }} />
             </div>
-            <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center">
+            <div className="col-6 col-sm-4 col-md-3 d-flex justify-content-center">
               <img src={tucanocu} alt="Tucanocu" className="img-fluid" style={{ border: '4px solid #f39912', borderRadius: 12, objectFit: 'cover', height: 140, width: 170, maxWidth: '100%' }} />
             </div>
           </div>
@@ -83,10 +81,10 @@ function App() {
           <div className="container" style={{ maxWidth: 900 }}>
             <div className="row g-3">
               {info.map((item, index) => (
-                <div className="col-12 col-sm-6 col-md-3" key={index}>
+                <div className="col-12 col-md-6" key={index}>
                   <div
                     onClick={() => setSelectedInfo(index)}
-                    className="h-100 d-flex align-items-stretch"
+                    className="h-100"
                     style={{
                       cursor: 'pointer',
                       background: selectedInfo === index ? '#ffe0b2' : '#fff',
@@ -97,17 +95,12 @@ function App() {
                       transition: 'all 0.2s',
                       fontSize: '1.25rem',
                       color: '#2c3e50',
-                      minHeight: 170,
-                      height: '100%',
+                      minHeight: 70,
                       display: 'flex',
                       flexDirection: 'column',
                       justifyContent: 'center',
                       alignItems: 'flex-start',
                       userSelect: 'none',
-                      overflow: 'visible',
-                      textOverflow: 'unset',
-                      whiteSpace: 'normal',
-                      wordBreak: 'break-word',
                     }}
                   >
                     <strong style={{ color: '#f39912', fontSize: '1.1em' }}>{item.label}:</strong> {item.value}
