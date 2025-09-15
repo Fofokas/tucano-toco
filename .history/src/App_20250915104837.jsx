@@ -29,10 +29,8 @@ const info = [
   { label: "Risco de Extinção", value: "LC – Pouco preocupante" },
 ]
 
-
 function App() {
   const [showCuriosity, setShowCuriosity] = useState(false)
-  const [selectedInfo, setSelectedInfo] = useState(null)
 
   return (
     <>
@@ -68,42 +66,14 @@ function App() {
         </section>
 
         <section>
-          <h2 style={{ borderBottom: "3px solid #f39912", color: "#f39912", marginBottom: 18, fontSize: '2rem' }}>Informações Gerais</h2>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
-            gap: '1.2rem',
-            margin: '0.5rem 0',
-            maxWidth: 800,
-            marginLeft: 'auto',
-            marginRight: 'auto',
-          }}>
+          <h2 style={{ borderBottom: "3px solid #f39912", color: "#f39912", marginBottom: 12 }}>Informações Gerais</h2>
+          <ul style={{ listStyle: "none", padding: 0 }}>
             {info.map((item, index) => (
-              <div
-                key={index}
-                onClick={() => setSelectedInfo(index)}
-                style={{
-                  cursor: 'pointer',
-                  background: selectedInfo === index ? '#ffe0b2' : '#fff',
-                  border: selectedInfo === index ? '3px solid #f39912' : '2px solid #f39912',
-                  borderRadius: 14,
-                  padding: '1.2rem 1rem',
-                  boxShadow: selectedInfo === index ? '0 2px 12px #f3991240' : '0 1px 6px #f3991215',
-                  transition: 'all 0.2s',
-                  fontSize: '1.25rem',
-                  color: '#2c3e50',
-                  minHeight: 70,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'center',
-                  alignItems: 'flex-start',
-                  userSelect: 'none',
-                }}
-              >
-                <strong style={{ color: '#f39912', fontSize: '1.1em' }}>{item.label}:</strong> {item.value}
-              </div>
+              <li key={index} style={{ margin: "0.5rem 0", fontSize: "1.1rem" }}>
+                <strong style={{ color: "#f39912" }}>{item.label}:</strong> {item.value}
+              </li>
             ))}
-          </div>
+          </ul>
         </section>
 
         <section style={{ marginTop: "2rem" }}>
