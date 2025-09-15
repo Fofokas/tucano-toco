@@ -71,12 +71,9 @@ function App() {
           <h2 style={{ borderBottom: "3px solid #f39912", color: "#f39912", marginBottom: 18, fontSize: '2rem' }}>Informações Gerais</h2>
           <div style={{
             display: 'grid',
-            gridTemplateColumns: '1fr 1fr',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '1.2rem',
             margin: '0.5rem 0',
-            maxWidth: 800,
-            marginLeft: 'auto',
-            marginRight: 'auto',
           }}>
             {info.map((item, index) => (
               <div
