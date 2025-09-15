@@ -1,6 +1,6 @@
 import React, { useState, forwardRef, useImperativeHandle, useCallback, memo, useRef } from 'react';
-import PropTypes from 'prop-types';
-import Dialog from '../../common/feedback/Dialog';
+
+
 
 /**
  * Estilos para o overlay do modal
@@ -58,18 +58,8 @@ const PopUpComponent = memo(forwardRef((props, ref) => {
 
     // Fecha o PopUp com confirmação (usado no overlay)
     const hideWithConfirm = useCallback(() => {
-              // Usa o Dialog unificado em vez de window.confirm
-        if (dialogRef.current) {
-            dialogRef.current.showConfirm({
-          title: 'Confirmar Saída',
-          message: 'Tem certeza que deseja sair do pop-up?',
-          confirmText: 'Sair',
-          cancelText: 'Cancelar',
-          type: 'warning',
-          onConfirm: hide,
-          onCancel: () => {}
-        });
-      }
+      // Apenas fecha diretamente, pois Dialog não existe
+      hide();
     }, [hide]);
 
   /**
@@ -98,8 +88,7 @@ const PopUpComponent = memo(forwardRef((props, ref) => {
     hide,
   }), [show, hide]);
 
-      // Ref para o Dialog unificado
-    const dialogRef = useRef();
+
 
   // Desestrutura o estado do modal
   const { isVisible, ContentComponent, componentProps, title } = modalState;
@@ -140,8 +129,7 @@ const PopUpComponent = memo(forwardRef((props, ref) => {
         </div>
       </div>
       
-              {/* Dialog unificado para confirmações */}
-        <Dialog ref={dialogRef} />
+
     </div>
   );
 }));
@@ -149,10 +137,6 @@ const PopUpComponent = memo(forwardRef((props, ref) => {
 // Define o nome do componente para debugging
 PopUpComponent.displayName = 'PopUpComponent';
 
-// Define os tipos de propriedades esperadas pelo componente
-PopUpComponent.propTypes = {
-  // Atualmente não há props diretas, mas pode ser expandido conforme necessário
-  // As props são passadas através das funções show() expostas pela ref
-};
+
 
 export default PopUpComponent;
