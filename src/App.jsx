@@ -9,20 +9,19 @@ import tucanotuco04 from './assets/tucanotuco04.jpg';
 
 import dancingTeucano from './assets/dancing teucano.gif';
 import tucanocu from './assets/tucanocu.jpeg';
+import tucano_sleep from './assets/tucano_sleep.jpeg';
+
+import tucanoTocoAudio from './assets/tucano-toco.mp3';
+import tucanoComendoVideo from './assets/tucano-comendo.mp4';
 
 import ImageThumbnail from './components/ImageThumbnail';
 import PopUpComponent from './components/PopUpComponent';
 import NomeCientificoInfo from './components/info/NomeCientificoInfo';
 import GeneroInfo from './components/info/GeneroInfo';
 import HabitatInfo from './components/info/HabitatInfo';
-
-import tucano_sleep from './assets/tucano_sleep.jpeg';
-
 import Header from './components/Header';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
-import tucanoTocoAudio from './assets/tucano-toco.mp3';
-import tucanoComendoVideo from './assets/tucano-comendo.mp4';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const info = [
   { label: "Nome Científico", value: <i>Ramphastos toco</i> },
@@ -90,7 +89,7 @@ function App() {
           <div className="row g-3 justify-content-center align-items-center">
             {images.map((img, idx) => (
               <div className="col-6 col-sm-6 col-md-3 d-flex justify-content-center" key={img.alt + idx}>
-                <ImageThumbnail src={img.src} alt={img.alt} onClick={() => handleImageClick(img)} width={250} height={250} />
+                <ImageThumbnail src={img.src} alt={img.alt} onClick={() => handleImageClick(img)} width={140} height={140} />
               </div>
             ))}
           </div>
@@ -98,7 +97,6 @@ function App() {
 
         <PopUpComponent ref={popupRef} />
 
-        {/* Sessão do botão de áudio e vídeo */}
         <section className="container mb-4 py-3" style={{ background: "#fff3e0", borderRadius: "16px", marginTop: 32, textAlign: 'center' }}>
           <h2 style={{ color: "#f39912", fontSize: "2rem", marginBottom: 18 }}>Veja um pouco mais do tucano-toco!</h2>
           <div style={{ display: 'flex', justifyContent: 'center', gap: 16 }}>
@@ -132,25 +130,26 @@ function App() {
           <h2 style={{ borderBottom: "3px solid #f39912", color: "#f39912", marginBottom: 18, fontSize: '2rem' }}>Informações Gerais</h2>
           <div className="container" style={{ maxWidth: 900 }}>
             <div className="row g-3">
-              {info.map((item, index) => (
-                <div className="col-12 col-sm-6 col-md-3" key={index}>
-                  <div
-                    onClick={() => {
-                      setSelectedInfo(index);
-                      if (popupRef.current) {
-                        let title = item.label;
-                        let content = null;
-                        if (item.label === 'Nome Científico') {
-                          title = 'Etimologia de Ramphastos toco';
-                          content = <NomeCientificoInfo />;
-                        } else if (item.label === 'Gênero') {
-                          title = 'Outros animais do gênero Ramphastos';
-                          content = <GeneroInfo />;
-                        } else if (item.label === 'Habitat') {
-                          title = 'Habitat do Tucano-Toco';
-                          content = <HabitatInfo />;
-                        }
-                        if (content) {
+              {info.map((item, index) => {
+                let content = null;
+                let title = item.label;
+                if (item.label === 'Nome Científico') {
+                  title = 'Etimologia de Ramphastos toco';
+                  content = <NomeCientificoInfo />;
+                } else if (item.label === 'Gênero') {
+                  title = 'Outros animais do gênero Ramphastos';
+                  content = <GeneroInfo />;
+                } else if (item.label === 'Habitat') {
+                  title = 'Habitat do Tucano-Toco';
+                  content = <HabitatInfo />;
+                }
+
+                return (
+                  <div className="col-12 col-sm-6 col-md-3" key={index}>
+                    <div
+                      onClick={() => {
+                        setSelectedInfo(index);
+                        if (content && popupRef.current) {
                           popupRef.current.show({
                             content: () => (
                               <div style={{ minWidth: 250, maxWidth: 400 }}>
@@ -161,36 +160,35 @@ function App() {
                             title: item.label,
                           });
                         }
-                      }
-                    }}
-                    className="h-100 d-flex align-items-stretch"
-                    style={{
-                      cursor: 'pointer',
-                      background: selectedInfo === index ? '#ffe0b2' : '#fff',
-                      border: selectedInfo === index ? '3px solid #f39912' : '2px solid #f39912',
-                      borderRadius: 14,
-                      padding: '1.2rem 1rem',
-                      boxShadow: selectedInfo === index ? '0 2px 12px #f3991240' : '0 1px 6px #f3991215',
-                      transition: 'all 0.2s',
-                      fontSize: '1.25rem',
-                      color: '#2c3e50',
-                      minHeight: 170,
-                      height: '100%',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      justifyContent: 'center',
-                      alignItems: 'flex-start',
-                      userSelect: 'none',
-                      overflow: 'visible',
-                      textOverflow: 'unset',
-                      whiteSpace: 'normal',
-                      wordBreak: 'break-word',
-                    }}
-                  >
-                    <strong style={{ color: '#f39912', fontSize: '1.1em' }}>{item.label}:</strong> {item.value}
+                      }}
+                      className="h-100 d-flex align-items-stretch"
+                      style={{
+                        cursor: 'pointer',
+                        background: selectedInfo === index ? '#ffe0b2' : '#fff',
+                        border: selectedInfo === index ? '3px solid #f39912' : '2px solid #f39912',
+                        borderRadius: 14,
+                        padding: '1.2rem 1rem',
+                        boxShadow: selectedInfo === index ? '0 2px 12px #f3991240' : '0 1px 6px #f3991215',
+                        transition: 'all 0.2s',
+                        fontSize: '1.25rem',
+                        color: '#2c3e50',
+                        minHeight: 170,
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        alignItems: 'flex-start',
+                        userSelect: 'none',
+                        overflow: 'visible',
+                        textOverflow: 'unset',
+                        whiteSpace: 'normal',
+                        wordBreak: 'break-word',
+                      }}
+                    >
+                      <strong style={{ color: '#f39912', fontSize: '1.1em' }}>{item.label}:</strong> {item.value}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>
@@ -227,6 +225,7 @@ function App() {
   );
 }
 
+// Componentes auxiliares
 function AudioButton() {
   const audioRef = useRef(null);
   const [playing, setPlaying] = useState(false);
